@@ -1,0 +1,684 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-header {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+  color: #667eea;
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-menu button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.nav-menu button:hover {
+  background: #e5e7eb;
+  transform: translateY(-2px);
+}
+
+.nav-menu button.active {
+  background: #667eea;
+  color: white;
+}
+
+.nomina-total-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nomina-total-card h3 {
+  color: #667eea;
+  margin-bottom: 15px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stat-label {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.stat-value {
+  color: #111827;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.app-content {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Create Component */
+.create-container {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 10px;
+}
+
+.create-container h2 {
+  color: #374151;
+  margin-bottom: 15px;
+}
+
+.empleado-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  color: #374151;
+  font-weight: 600;
+}
+
+.form-group input, .form-group select {
+  padding: 10px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.btn-primary {
+  padding: 12px 24px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background: #5568d3;
+  transform: translateY(-2px);
+}
+
+.btn-primary:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  padding: 12px 24px;
+  background: #6b7280;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #4b5563;
+}
+
+.btn-danger {
+  padding: 8px 16px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+}
+
+.btn-calcular {
+  padding: 8px 16px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-calcular:hover {
+  background: #059669;
+}
+
+.mensaje {
+  padding: 10px;
+  border-radius: 6px;
+  background: #d1fae5;
+  color: #065f46;
+  text-align: center;
+}
+
+/* Empleados List */
+.empleados-list-container h2 {
+  color: #374151;
+  margin-bottom: 20px;
+}
+
+.empleados-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.empleado-card {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.3s;
+}
+
+.empleado-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.2);
+}
+
+.empleado-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.empleado-header h3 {
+  color: #111827;
+  font-size: 1.2rem;
+}
+
+.edad-badge {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.empleado-info {
+  margin-bottom: 15px;
+  color: #6b7280;
+}
+
+.empleado-info p {
+  margin: 5px 0;
+}
+
+.ultima-nomina {
+  background: #f0fdf4;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.empleado-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  color: #374151;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+  transition: color 0.3s;
+}
+
+.btn-close:hover {
+  color: #111827;
+}
+
+.empleado-info-card {
+  background: #f0f9ff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.empleado-info-card h3 {
+  color: #1e40af;
+  margin-bottom: 5px;
+}
+
+.badge-bonificacion {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.nomina-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-text {
+  color: #10b981;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: block;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.resultado-nomina {
+  text-align: center;
+}
+
+.resultado-nomina h3 {
+  color: #10b981;
+  margin-bottom: 20px;
+}
+
+.resultado-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.resultado-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.resultado-item.descuento {
+  background: #fee2e2;
+}
+
+.resultado-item.comision {
+  background: #d1fae5;
+}
+
+.resultado-item.bonificacion {
+  background: #fef3c7;
+}
+
+.resultado-item.total {
+  background: #dbeafe;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.resultado-item .label {
+  color: #6b7280;
+}
+
+.resultado-item .value {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* Nóminas Table */
+.nominas-container h2 {
+  color: #374151;
+  margin-bottom: 20px;
+}
+
+.nominas-table-container {
+  overflow-x: auto;
+}
+
+.nominas-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.nominas-table th {
+  background: #f3f4f6;
+  padding: 12px;
+  text-align: left;
+  color: #374151;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.nominas-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #6b7280;
+}
+
+.nominas-table tr:hover {
+  background: #f9fafb;
+}
+
+.nominas-table .empleado-nombre {
+  font-weight: 600;
+  color: #111827;
+}
+
+.nominas-table .monto {
+  font-weight: 600;
+  color: #059669;
+}
+
+.nominas-table .descuento {
+  color: #dc2626;
+}
+
+.nominas-table .comision {
+  color: #10b981;
+}
+
+.nominas-table .bonificacion {
+  color: #f59e0b;
+}
+
+.nominas-table .total {
+  font-weight: bold;
+  color: #1e40af;
+  font-size: 1.1rem;
+}
+
+/* Búsquedas */
+.busquedas-container h2 {
+  color: #374151;
+  margin-bottom: 20px;
+}
+
+.busquedas-menu {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.busquedas-menu button {
+  padding: 10px 20px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  color: #374151;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.busquedas-menu button:hover {
+  border-color: #667eea;
+}
+
+.busquedas-menu button.active {
+  border-color: #667eea;
+  background: #667eea;
+  color: white;
+}
+
+.resultados-section h3 {
+  color: #374151;
+  margin-bottom: 20px;
+}
+
+.ranking-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.ranking-card {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.ranking-card:hover {
+  border-color: #10b981;
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.2);
+}
+
+.ranking-number {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.ranking-info h4 {
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.salario-info p {
+  color: #6b7280;
+  margin: 5px 0;
+}
+
+.cumpleanos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.cumpleanos-card {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.cumpleanos-card:hover {
+  border-color: #ec4899;
+  box-shadow: 0 4px 8px rgba(236, 72, 153, 0.2);
+}
+
+.cumpleanos-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.cumpleanos-card h4 {
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.cumpleanos-card p {
+  color: #6b7280;
+  margin: 5px 0;
+}
+
+.dias-restantes {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.resultados-busqueda h4 {
+  color: #374151;
+  margin-bottom: 20px;
+}
+
+/* Utilidades */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
+  font-size: 1.2rem;
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px;
+  color: #9ca3af;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .empleados-grid, .ranking-grid, .cumpleanos-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    padding: 20px;
+  }
+  
+  .search-box {
+    flex-direction: column;
+  }
+}
+
